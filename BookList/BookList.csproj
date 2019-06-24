@@ -44,7 +44,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Book.cs" />
+    <Compile Include="ILibrary.cs" />
     <Compile Include="Library.cs" />
+    <Compile Include="LibraryArrayList.cs" />
+    <Compile Include="LibraryLinkedList.cs" />
+    <Compile Include="LibraryList.cs" />
+    <Compile Include="LibraryQueue.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
