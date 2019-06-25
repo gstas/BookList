@@ -1,41 +1,39 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace BookList
 {
-    class LibraryQueue : Library, ILibrary
+    class LibraryDictionary : Library, ILibrary
     {
-        Queue<Book> library;
+        Dictionary<int, Book> library;
+        static int key;
 
-        public LibraryQueue()
+        public LibraryDictionary()
         {
-            library = new Queue<Book>();
+            library = new Dictionary<int, Book>();
+            key = 0;
         }
 
         public void Add(Book book)
         {
-            library.Enqueue(book);
+            library.Add(key++, book);
+
         }
 
         public void Remove(int n)
         {
-            
-            Queue<Book> temp = new Queue<Book>();
+            Dictionary<int, Book> temp = new Dictionary<int, Book>();
+            int k = 0;
 
-            for (int i = 0; i < n; i++)
+            library.Remove(n);
+            foreach (Book book in library.Values)
             {
-                temp.Enqueue(library.Dequeue());
+                temp.Add(k++, book);
             }
-            library.Dequeue();
-
-            while (library.Count > 0)
-            {
-                temp.Enqueue(library.Dequeue());
-                library.TrimExcess();
-            }
-
             library = temp;
-            temp = null;
         }
 
         public int GetLength()
@@ -45,23 +43,18 @@ namespace BookList
 
         public Book BookAt(int n)
         {
-            int i = 0;
-            foreach (Book book in library)
-            {
-                if (i == n)
-                    return book;
+            if (n >= 0 && n < library.Count)
+                return (Book)library[n];
 
-                i++;
-            }
             return null;
         }
 
 
         public Library FindByTitle(string title)
         {
-            LibraryList result = new LibraryList();
+            LibraryDictionary result = new LibraryDictionary();
 
-            foreach (Book book in library)
+            foreach (Book book in library.Values)
                 if (book != null && book.FindByTitle(title) == true)
                     result.Add(new Book(book));
 
@@ -72,7 +65,7 @@ namespace BookList
         {
             string result = "Library (" + this.GetLength() + " books):\n";
 
-            foreach (Book book in library)
+            foreach (Book book in library.Values)
                 result += (book == null ? "" : book.ToString()) + "\n";
 
             return result;

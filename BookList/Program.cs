@@ -10,24 +10,13 @@ namespace BookList
             Book book2 = new Book("Книга2");
             Book book3 = new Book("Книга3");
 
-            /*
-            LibraryArrayList lib = new LibraryArrayList();
-            lib.Add(book1);
-            lib.Add(book2);
-            */
-            /*
-            LibraryList lib = new LibraryList();
-            lib.Add(book1);
-            lib.Add(book2);
-            */
 
-            /*
-            LibraryLinkedList lib = new LibraryLinkedList();
-            lib.Add(book1);
-            lib.Add(book2);
-            */
+            // LibraryArrayList lib = new LibraryArrayList();
+            // LibraryList lib = new LibraryList();
+            // LibraryLinkedList lib = new LibraryLinkedList();
+            // LibraryQueue lib = new LibraryQueue();
+            LibraryDictionary lib = new LibraryDictionary();
 
-            LibraryQueue lib = new LibraryQueue();
             lib.Add(book1);
             lib.Add(book2);
 

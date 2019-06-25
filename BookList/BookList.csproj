@@ -47,6 +47,7 @@
     <Compile Include="ILibrary.cs" />
     <Compile Include="Library.cs" />
     <Compile Include="LibraryArrayList.cs" />
+    <Compile Include="LibraryDictionary.cs" />
     <Compile Include="LibraryLinkedList.cs" />
     <Compile Include="LibraryList.cs" />
     <Compile Include="LibraryQueue.cs" />
