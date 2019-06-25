@@ -19,7 +19,24 @@ namespace BookList
 
         public void Remove(int n)
         {
-            throw new NotImplementedException();
+            Queue<Book> need = new Queue<Book>();
+            Queue<Book> temp = new Queue<Book>();
+
+            for (int i = 0; i < n; i++)
+            {
+                temp.Enqueue(library.Dequeue());
+            }
+            need.Enqueue(library.Dequeue());
+
+            while (library.Count > 0)
+            {
+                temp.Enqueue(library.Dequeue());
+                library.TrimExcess();
+            }
+
+            library = temp;
+            temp = null;
+            need = null;
         }
 
         public int GetLength()
@@ -29,7 +46,15 @@ namespace BookList
 
         public Book BookAt(int n)
         {
-            throw new NotImplementedException();
+            int i = 0;
+            foreach (Book book in library)
+            {
+                if (i == n)
+                    return book;
+
+                i++;
+            }
+            return null;
         }
 
 

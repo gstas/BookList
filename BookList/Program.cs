@@ -37,14 +37,14 @@ namespace BookList
             Console.WriteLine("Добавили еще книгу:");
             Console.WriteLine(lib);
 
-            //lib.Remove(1);
-            //Console.WriteLine("Удалили книгу(0):");
-            //Console.WriteLine(lib);
+            lib.Remove(1);
+            Console.WriteLine("Удалили книгу(1):");
+            Console.WriteLine(lib);
 
-            //Console.WriteLine("Книга(0):");
-            //Console.WriteLine(lib.BookAt(0));
+            Console.WriteLine("Книга(0):");
+            Console.WriteLine(lib.BookAt(0) + "\n");
 
-            Console.WriteLine("\nПоиск книги3:");
+            Console.WriteLine("Поиск 'книги3':");
             Console.WriteLine(lib.FindByTitle("Книга3"));
         }
     }
